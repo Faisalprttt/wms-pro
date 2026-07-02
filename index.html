@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WMS Pro — Warehouse Management System</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="layout">
+
+<div id="loginScreen" class="login-wrapper">
+  <div class="bg-shape shape-1"></div>
+  <div class="bg-shape shape-2"></div>
+  <div class="bg-shape shape-3"></div>
+
+  <div class="login-glass-card">
+    <div class="login-side">
+      <div class="login-logo">
+        <span class="logo-mark">W</span>
+      </div>
+      <div class="tagline">WMS Pro</div>
+      <h2>WORK SMARTER MOVE FASTER</h2>
+    </div>
+
+    <div class="login-form-wrap">
+      <form id="loginForm" onsubmit="processLogin(event)">
+        <div class="input-container">
+          <input type="text" id="username" value="faisal" required autocomplete="off">
+          <label>Username</label>
+          <div class="input-underline"></div>
+        </div>
+        
+        <div class="input-container">
+          <input type="password" id="password" value="admin123" required>
+          <label>Password</label>
+          <div class="input-underline"></div>
+        </div>
+
+        <button type="submit" id="btnLogin" class="btn-glow">
+          <span class="btn-text">MASUK</span>
+          <span class="btn-loader"></span>
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+  <!-- TOPBAR -->
+  <header class="topbar" id="topbar">
+    <div class="topbar-left">
+      <div class="logo">
+        <div class="logo-icon">W</div>
+        <div class="logo-text">
+          <span class="logo-title">WMS Pro</span>
+          <span class="logo-sub">Warehouse System</span>
+        </div>
+      </div>
+    </div>
+
+    <nav class="nav-menu">
+      <a class="nav-item active" data-page="dashboard" onclick="navigate('dashboard')">
+        <span class="nav-icon">&#9783;</span> Dashboard
+      </a>
+      <a class="nav-item" data-page="products" onclick="navigate('products')">
+        <span class="nav-icon">&#9635;</span> Produk
+      </a>
+      <a class="nav-item" data-page="inventory" onclick="navigate('inventory')">
+        <span class="nav-icon">&#9744;</span> Inventori
+      </a>
+      <a class="nav-item" data-page="locations" onclick="navigate('locations')">
+        <span class="nav-icon">&#9650;</span> Lokasi
+      </a>
+      <a class="nav-item" data-page="inbound" onclick="navigate('inbound')">
+        <span class="nav-icon">&#8659;</span> Masuk
+      </a>
+      <a class="nav-item" data-page="outbound" onclick="navigate('outbound')">
+        <span class="nav-icon">&#8657;</span> Keluar
+      </a>
+      <a class="nav-item" data-page="transfer" onclick="navigate('transfer')">
+        <span class="nav-icon">&#8660;</span> Transfer
+      </a>
+      <a class="nav-item" data-page="adjustment" onclick="navigate('adjustment')">
+        <span class="nav-icon">&#9998;</span> Penyesuaian
+      </a>
+      <a class="nav-item" data-page="suppliers" onclick="navigate('suppliers')">
+        <span class="nav-icon">&#9741;</span> Supplier
+      </a>
+      <a class="nav-item" data-page="categories" onclick="navigate('categories')">
+        <span class="nav-icon">&#9776;</span> Kategori
+      </a>
+      <a class="nav-item" data-page="units" onclick="navigate('units')">
+        <span class="nav-icon">&#9965;</span> Satuan
+      </a>
+      <a class="nav-item" data-page="reports" onclick="navigate('reports')">
+        <span class="nav-icon">&#9200;</span> Laporan
+      </a>
+      <a class="nav-item" data-page="history" onclick="navigate('history')">
+        <span class="nav-icon">&#9679;</span> Riwayat
+      </a>
+    </nav>
+
+    <div class="topbar-right">
+      <div class="user-info">
+        <div class="user-avatar">AD</div>
+        <div class="user-text">
+          <div class="user-name" id="sidebarUserName">Admin Gudang</div>
+          <div class="user-role" id="sidebarUserRole">Administrator</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="main-content" id="mainContent">
+    <div id="pageContent"></div>
+  </main>
+</div>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal()">
+  <div class="modal" id="modal" onclick="event.stopPropagation()">
+    <div class="modal-header">
+      <h3 id="modalTitle">Modal</h3>
+      <button class="modal-close" onclick="closeModal()">&#10005;</button>
+    </div>
+    <div class="modal-body" id="modalBody"></div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div id="toastContainer"></div>
+
+<script src="js/db.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
